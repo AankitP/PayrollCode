@@ -73,4 +73,28 @@ public class person {
         return (stringRepresentation);
     }
 
+    public ArrayList<Float> calculateHourDifferences()
+    {
+        ArrayList<Float> a = new ArrayList<Float>();
+        
+        for(int i = 0; i<this.hours.size(); i++)
+        {
+            Date hourIn = hours.get(i)[0];
+            Date hourOut = hours.get(i)[1];
+
+            //Hour diff
+            float diff = (hourOut.getTime()-hourIn.getTime());
+            float hourDiff = diff/(60*60*1000);
+
+            //update total hours
+            this.totalHours += hourDiff;
+
+            //add to arrayList Holding hour diff for days
+            a.add(hourDiff);
+
+        }
+
+        return a;
+    }
+
 }

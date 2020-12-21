@@ -17,6 +17,7 @@ public class App {
 
         System.out.println(joseph);
 
+        System.out.println(joseph.calculateHourDifferences());
 
     }
 }
