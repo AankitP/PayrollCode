@@ -1,27 +1,31 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
         person joseph = new person("Joseph", 10);
 
-        joseph.addHours("Mon", "10:25 AM", "10:36 PM");
-        joseph.addHours("Tues", "10:59 AM", "10:01 PM");
-        joseph.addHours("Wed", "10:50 AM", "10:05 PM");
-        joseph.addHours("Thurs", "10:49 AM", "10:22 PM");
+        SimpleDateFormat format = new SimpleDateFormat(
+            "yy/MM/dd HH:mm:ss aa");  
 
-        System.out.println(joseph);
+        String in = "11/03/20 09:00:00 am";
+        String out = "11/03/20 10:30:00 pm";
 
-        ArrayList<String[]> hours = joseph.getHours();
+        Date d1 = format.parse(in);
+        Date d2 = format.parse(out);
 
-    }
+        long diff = d2.getTime() - d1.getTime();
+        long diffS = diff/(1000)%60;
+        long diffM = diff/(60*1000)%60;
+        long diffHours = diff/(60*60*1000);
 
-    public void calculateDiffInHours(ArrayList<String[]> hours)
-    {
-        int i = 0;
-        while(i < hours.size())
-        {
-            
-        }
+        System.out.println(diff);
+        System.out.println(diffS);
+        System.out.println(diffM);
+        System.out.println(diffHours);
+
+
     }
 }

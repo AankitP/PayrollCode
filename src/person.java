@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 public class person
 {
@@ -7,6 +8,9 @@ public class person
     private double payRate;
     private ArrayList<String[]> hours = new ArrayList<String[]>();
     private double totalHours;
+
+    //Format
+    SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd HH:mm:ss");  
 
     //default constructor
     public person(String name)
@@ -42,12 +46,7 @@ public class person
 
     public void addHours(String day, String in, String out)
     {
-        String[] inOut = new String[3];
-        inOut[0] = day;
-        inOut[1] = in;
-        inOut[2] = out;
-
-        this.hours.add(inOut);
+        
     }
 
     public ArrayList getHours()
