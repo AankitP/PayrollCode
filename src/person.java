@@ -58,6 +58,39 @@ public class person {
         return this.hours;
     }
 
+    public ArrayList<String[]> calculateHourDifferences()
+    {
+        //Array List of hours worked, saved as a string because Date is saved along with it
+        ArrayList<String[]> a = new ArrayList<>();
+        this.totalHours = 0;
+
+        for(int i = 0; i<this.hours.size(); i++)
+        {
+            Date hourIn = hours.get(i)[0];
+            Date hourOut = hours.get(i)[1];
+
+            //Hour diff
+            float diff = (hourOut.getTime()-hourIn.getTime());
+            float hourDiff = diff/(60*60*1000);
+
+            //update total hours
+            this.totalHours += hourDiff;
+
+            String date = ""+hourIn.getDate() + "/" + (hourIn.getMonth()+1) + "/" + (hourIn.getYear()+1900);
+
+            //String array to save
+            String[] saveThis = {date, ""+hourDiff};
+
+            //add to arrayList Holding hour diff for days
+            a.add(saveThis);
+
+        }
+        return a;
+    }
+
+
+
+
     public String toString()
     {
         String stringRepresentation = this.name + ":";
@@ -71,30 +104,6 @@ public class person {
         }
 
         return (stringRepresentation);
-    }
-
-    public ArrayList<Float> calculateHourDifferences()
-    {
-        ArrayList<Float> a = new ArrayList<Float>();
-        
-        for(int i = 0; i<this.hours.size(); i++)
-        {
-            Date hourIn = hours.get(i)[0];
-            Date hourOut = hours.get(i)[1];
-
-            //Hour diff
-            float diff = (hourOut.getTime()-hourIn.getTime());
-            float hourDiff = diff/(60*60*1000);
-
-            //update total hours
-            this.totalHours += hourDiff;
-
-            //add to arrayList Holding hour diff for days
-            a.add(hourDiff);
-
-        }
-
-        return a;
     }
 
 }

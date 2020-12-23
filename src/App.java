@@ -8,10 +8,15 @@ public class App {
         person joseph = new person("Joseph", 10);
 
         SimpleDateFormat format = new SimpleDateFormat(
-            "dd/MM/yy HH:mm:ss");  
+            "yy/MM/dd HH:mm:ss");  
 
-        String in = "11/03/20 09:00:00";
-        String out = "11/03/20 22:30:00";
+        String in = "20/03/20 09:00:00";
+        String out = "20/03/20 22:30:00";
+
+        joseph.addHours(in, out);
+
+        in = "20/01/21 09:00:00";
+        out = "20/01/21 22:30:00";
 
         joseph.addHours(in, out);
 
