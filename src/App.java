@@ -1,28 +1,48 @@
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-        person joseph = new person("Joseph", 10);
+        //person joseph = new person("Joseph", 10);
 
-        SimpleDateFormat format = new SimpleDateFormat(
-            "yy/MM/dd HH:mm:ss");  
+        String a = "12/28/2020 9:30 AM";
+        String b = "12/28/2020 9:30 PM";
+        
+        System.out.println(hourReturn(a));
+        System.out.println(hourReturn(b));
 
-        String in = "20/03/20 09:00:00";
-        String out = "20/03/20 22:30:00";
+    }
 
-        joseph.addHours(in, out);
+    //this is for formatting reasons
+    public static String hourReturn(String input)
+    {
+        StringTokenizer t = new StringTokenizer(input , " :");//creats a String Tokenizer to seperate the String Created
+        
+        String day = t.nextToken();
+        String hour = t.nextToken();
+        String min = t.nextToken();
+        String amOrPM = t.nextToken();
 
-        in = "20/01/21 09:00:00";
-        out = "20/01/21 22:30:00";
+        System.out.println(day);
+        System.out.println(hour);
+        System.out.println(min);
+        System.out.println(amOrPM);
 
-        joseph.addHours(in, out);
+        //this is to format it better
+        if(amOrPM.equals("PM"))
+        {
+            int h = Integer.parseInt(hour);
+            h+=12;
 
-        System.out.println(joseph);
+            hour = "" + h;
+        }
 
-        System.out.println(joseph.calculateHourDifferences());
 
+
+        String returnThis = day + " " + hour + ":" + min + 
+            ":00";
+        return returnThis;
     }
 }
