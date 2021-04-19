@@ -99,9 +99,13 @@ public class person {
         while(i < this.hours.size())
         {
             stringRepresentation += "\n\tIn: " + this.hours.get(i)[0] +
-            "\n\tOut: " + this.hours.get(i)[1];
+            "\n\tOut: " + this.hours.get(i)[1] ;
             i++;
         }
+
+        calculateHourDifferences();
+
+        stringRepresentation += "\n Total hours: " + totalHours;
 
         return (stringRepresentation);
     }
