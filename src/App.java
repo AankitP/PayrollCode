@@ -1,6 +1,6 @@
 //Imports
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.Scanner;
 
@@ -88,6 +88,8 @@ public class App {
             }
         }
         
+        stringScanner.close();
+        intScanner.close();
 
     }
 
