@@ -10,7 +10,8 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         
-        Scanner Scaner = new Scanner(System.in);
+        Scanner intScanner = new Scanner(System.in);
+        Scanner stringScanner = new Scanner(System.in);
 
         /*
         String a = "12/28/2020 9:30 AM";
@@ -20,12 +21,31 @@ public class App {
         while(!exit)
         {
             menue();
-            int a = Scaner.nextInt();
+            int a = intScanner.nextInt();
 
             switch(a)
             {
-                case 1:
-                    System.out.println("Typed 1");
+                case 1://Creates a new Worker
+                    System.out.println("Creating new Worker...");
+                    System.out.println("\tEnter Name");
+                    String nameOfNewWorker = stringScanner.nextLine();
+
+                    System.out.println("\tdo you want to add a payRate at this time? (Y/N)");
+                    String addPay = stringScanner.nextLine();
+
+                    if(addPay.compareTo("Y") == 0)//This is for if we want to add hourly pay
+                    {
+                        System.out.println("\t\tEnter Payrate: ");
+                        double pay = stringScanner.nextDouble();
+
+                        addWorker(nameOfNewWorker,pay);
+
+                    }
+                    else//If we don't want to add pay
+                    {
+                        addWorker(nameOfNewWorker);
+                    }
+
                     break;
                 case 2:
                     System.out.println("Typed 2");
@@ -34,6 +54,15 @@ public class App {
                     System.out.println("Typed 3");
                     break;
                 case 4:
+                    System.out.println("Printing Workers...");
+
+                    for(int i = 0; i < workers.size(); i++)
+                    {
+                        System.out.println(workers.get(i).toString());
+                    }
+
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                     exit = true;
                     break;
@@ -95,6 +124,7 @@ public class App {
         System.out.println("\t1)Add Worker ");
         System.out.println("\t2)change worker pay");
         System.out.println("\t3)Add Worker ClockIn/ClockOut");
-        System.out.println("\t4)Exit");
+        System.out.println("\t4)Print current workers status");
+        System.out.println("\t5)Exit");
     }
 }
