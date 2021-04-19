@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class App {
 
@@ -9,14 +10,36 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         
+        Scanner Scaner = new Scanner(System.in);
+
         /*
         String a = "12/28/2020 9:30 AM";
         String b = "12/28/2020 9:30 PM";
         */
+        boolean exit = false;
+        while(!exit)
+        {
+            menue();
+            int a = Scaner.nextInt();
 
-        addWorker("Johnny");
-        addWorker("Janet", 10.2);
+            switch(a)
+            {
+                case 1:
+                    System.out.println("Typed 1");
+                    break;
+                case 2:
+                    System.out.println("Typed 2");
+                    break;
+                case 3:
+                    System.out.println("Typed 3");
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    exit = true;
+                    break;
 
+            }
+        }
         
 
     }
@@ -64,5 +87,14 @@ public class App {
         String returnThis = day + " " + hour + ":" + min + 
             ":00";
         return returnThis;
+    }
+
+    private static void menue()
+    {
+        System.out.println("\nThis is the menue, input a number: ");
+        System.out.println("\t1)Add Worker ");
+        System.out.println("\t2)change worker pay");
+        System.out.println("\t3)Add Worker ClockIn/ClockOut");
+        System.out.println("\t4)Exit");
     }
 }
