@@ -17,6 +17,9 @@ public class App {
         Scanner stringScanner = new Scanner(System.in);
         //Variables used 
         String WorkerNameToFind = "";//used for the find find worker function
+        int WorkerIndex = 0;//used For the return of find worker function
+        String workerInTime = "";
+        String workerOutTime = "";
 
         /*
         String a = "12/28/2020 9:30 AM";
@@ -56,7 +59,7 @@ public class App {
                     System.out.println("Adjusting Worker Pay");
                     System.out.println("enter Worker Name: ");
                     WorkerNameToFind = stringScanner.nextLine();
-                    int WorkerIndex = findWorker(WorkerNameToFind);//find index of worker
+                    WorkerIndex = findWorker(WorkerNameToFind);//find index of worker
                     if(WorkerIndex != -1)
                     {
                         System.out.println("Worker found");
@@ -73,6 +76,21 @@ public class App {
                     break;
                 case 3://this is to add a workers clock in and clock out
                     System.out.println("Enter Worker name: ");
+                    WorkerNameToFind = stringScanner.nextLine();//gets name
+                    WorkerIndex = findWorker(WorkerNameToFind);//finds worker and returns their index
+                    System.out.println("enter clock in date and time in the format: mm/dd/yyyy h:mm AM/PM");
+                    workerInTime = stringScanner.nextLine();
+
+                    System.out.println("enter clock out date and time in the format: mm/dd/yyyy h:mm AM/PM");
+                    workerOutTime = stringScanner.nextLine();
+
+                    workerInTime = hourReturn(workerInTime);
+                    workerOutTime = hourReturn(workerOutTime);
+
+                    workers.get(WorkerIndex).addHours(workerInTime, workerOutTime);
+
+                    System.out.println("clock in and clock out added to " + workers.get(WorkerIndex).getName());
+                    
                     break;
                 case 4://this prints all workers current status
                     System.out.println("Printing Workers...");

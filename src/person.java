@@ -106,6 +106,8 @@ public class person {
         calculateHourDifferences();
 
         stringRepresentation += "\n Total hours: " + totalHours;
+        stringRepresentation += "\n Hourly Pay: " + this.getPayRate();
+        stringRepresentation += "\n Total Pay: " + (totalHours * this.getPayRate());
 
         return (stringRepresentation);
     }
