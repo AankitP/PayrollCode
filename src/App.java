@@ -25,7 +25,7 @@ public class App {
 
             switch(a)
             {
-                case 1://Creates a new Worker
+                case 1://If 1 is inputted, we create a new Worker
                     System.out.println("Creating new Worker...");
                     System.out.println("\tEnter Name");
                     String nameOfNewWorker = stringScanner.nextLine();
@@ -47,13 +47,13 @@ public class App {
                     }
 
                     break;
-                case 2:
+                case 2://this is to adjust a workers hourly pay
                     System.out.println("Typed 2");
                     break;
-                case 3:
+                case 3://this is to add a workers clock in and clock out
                     System.out.println("Typed 3");
                     break;
-                case 4:
+                case 4://this prints all workers current status
                     System.out.println("Printing Workers...");
 
                     for(int i = 0; i < workers.size(); i++)
@@ -62,7 +62,7 @@ public class App {
                     }
 
                     break;
-                case 5:
+                case 5://exits the system
                     System.out.println("Exiting...");
                     exit = true;
                     break;
