@@ -12,8 +12,11 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         
+        //scanners
         Scanner intScanner = new Scanner(System.in);
         Scanner stringScanner = new Scanner(System.in);
+        //Variables used 
+        String WorkerNameToFind = "";//used for the find find worker function
 
         /*
         String a = "12/28/2020 9:30 AM";
@@ -52,8 +55,8 @@ public class App {
                 case 2://this is to adjust a workers hourly pay
                     System.out.println("Adjusting Worker Pay");
                     System.out.println("enter Worker Name: ");
-
-                    int WorkerIndex = findWorker(stringScanner.nextLine());//find index of worker
+                    WorkerNameToFind = stringScanner.nextLine();
+                    int WorkerIndex = findWorker(WorkerNameToFind);//find index of worker
                     if(WorkerIndex != -1)
                     {
                         System.out.println("Worker found");
