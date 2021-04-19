@@ -1,8 +1,10 @@
+//Imports
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.Scanner;
 
+//no Error handling yet 
 public class App {
 
     //arraylist of people
@@ -28,7 +30,7 @@ public class App {
                 case 1://If 1 is inputted, we create a new Worker
                     System.out.println("Creating new Worker...");
                     System.out.println("\tEnter Name");
-                    String nameOfNewWorker = stringScanner.nextLine();
+                    String nameOfNewWorker = stringScanner.nextLine().toLowerCase();
 
                     System.out.println("\tdo you want to add a payRate at this time? (Y/N)");
                     String addPay = stringScanner.nextLine();
@@ -48,10 +50,26 @@ public class App {
 
                     break;
                 case 2://this is to adjust a workers hourly pay
-                    System.out.println("Typed 2");
+                    System.out.println("Adjusting Worker Pay");
+                    System.out.println("enter Worker Name: ");
+
+                    int WorkerIndex = findWorker(stringScanner.nextLine());//find index of worker
+                    if(WorkerIndex != -1)
+                    {
+                        System.out.println("Worker found");
+                        System.out.println("What Will the New Hourly Pay be?");
+                        workers.get(WorkerIndex).setPayRate(intScanner.nextDouble());//this accesses the worker, and adjusts their pay
+                        System.out.println("Worker Pay changed");
+                    }
+                    else 
+                    {
+                        System.out.println("No Worker with that name exists");
+                    }
+
+
                     break;
                 case 3://this is to add a workers clock in and clock out
-                    System.out.println("Typed 3");
+                    System.out.println("Enter Worker name: ");
                     break;
                 case 4://this prints all workers current status
                     System.out.println("Printing Workers...");
@@ -118,6 +136,22 @@ public class App {
         return returnThis;
     }
 
+    private static int findWorker(String name)//finds worker given name and returns index of worker
+    {
+        name = name.toLowerCase();
+
+        for(int i = 0; i <= workers.size(); i++)
+        {
+            if(workers.get(i).getName().compareTo(name) == 0)
+            {
+                return i;
+            }
+        } 
+        return -1;
+
+    }
+
+    //Prints UI Menue
     private static void menue()
     {
         System.out.println("\nThis is the menue, input a number: ");
