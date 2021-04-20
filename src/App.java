@@ -30,7 +30,7 @@ public class App {
         {
             menue();
             int a = intScanner.nextInt();
-
+            
             switch(a)
             {
                 case 1://If 1 is inputted, we create a new Worker
