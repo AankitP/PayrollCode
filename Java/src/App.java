@@ -38,10 +38,13 @@ public class App {
                     System.out.println("\tEnter Name");
                     String nameOfNewWorker = stringScanner.nextLine().toLowerCase();
 
+                    /*
                     System.out.println("\tdo you want to add a payRate at this time? (Y/N)");
                     String addPay = stringScanner.nextLine();
 
-                    if(addPay.compareTo("Y") == 0)//This is for if we want to add hourly pay
+                    addPay = addPay.toLowerCase();
+
+                    if(addPay.compareTo("y") == 0)//This is for if we want to add hourly pay
                     {
                         System.out.println("\t\tEnter Payrate: ");
                         double pay = stringScanner.nextDouble();
@@ -49,10 +52,11 @@ public class App {
                         addWorker(nameOfNewWorker,pay);
 
                     }
-                    else//If we don't want to add pay
-                    {
+                    */
+                    //else//If we don't want to add pay
+                    //{
                         addWorker(nameOfNewWorker);
-                    }
+                    //}
 
                     break;
                 case 2://this is to adjust a workers hourly pay
@@ -105,6 +109,9 @@ public class App {
                     System.out.println("Exiting...");
                     exit = true;
                     break;
+
+                default:
+                    System.out.println("invalid value entered");
 
             }
         }
