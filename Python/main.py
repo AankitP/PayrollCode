@@ -12,12 +12,12 @@ class Person:
         self.ClockedInOut = []
         self.hoursWorked = []
         
-    #uyet worksed to calculate total hours worked, doesn't 
+    #used to calculate total hours worked, doesn't work currently
     def calcHoursWorked(self):
         calculated = 0
         datetimeFormat = '%Y-%m-%d %H:%M'
         
-        for i in self.hoursWorked:
+        for i in self.ClockedInOut:
             
             print(i[0])
             print(i[1])
